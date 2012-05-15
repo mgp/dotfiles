@@ -1,0 +1,26 @@
+# git conflicts
+*.orig
+
+# xcode
+build/
+*.pbxuser
+*mode1v3
+xcuserdata
+
+# osx
+.DS_Store
+
+# python
+*.pyc
+
+# misc
+.svn
+.*.swp
+
+# iphone push cert
+*.pem
+
+# android
+*.class
+bin/
+
