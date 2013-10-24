@@ -1,0 +1,11 @@
+[user]
+	name = Michael Parker
+	email = michael.g.parker@gmail.com
+[core]
+	excludesfile = /Users/mgp/.gitignore_global
+[color]
+	ui = true
+[help]
+	autocorrect = 1
+[diff]
+	tool = opendiff
