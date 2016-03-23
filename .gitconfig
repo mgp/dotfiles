@@ -1,11 +1,42 @@
 [user]
 	name = Michael Parker
 	email = michael.g.parker@gmail.com
+[merge]
+	tool = p4mergetool
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$PWD\"/\"$BASE\" \"$PWD\"/\"$REMOTE\" \"$PWD\"/\"$LOCAL\" \"$PWD\"/\"$MERGED\"
+	trustExitCode = false
+[mergetool]
+	keepBackup = false
+[diff]
+	tool = p4mergetool
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
+[push]
+	default = current
+[rerere]
+	enabled = true
 [core]
+	precomposeunicode = true
 	excludesfile = /Users/mgp/.gitignore_global
 [color]
-	ui = true
-[help]
-	autocorrect = 1
-[diff]
-	tool = opendiff
+	ui = auto
+
+[alias]
+  br = "branch"
+  st = "status"
+  co = "checkout"
+  p = "pull"
+  dt = "difftool"
+  dtc = "difftool --cached"
+  dtl = "difftool HEAD~1 HEAD"
+  tbm = "checkout -t origin/master -b"
+  rbm = "pull --rebase origin master"
+  lol = "log --topo-order --no-merges --oneline"
+  dmm = ! "git branch --merged master | grep -v -E '^(\\* | master$)' | xargs -n 1 git branch -d"
+
+  # Versions of commands that handle submodules properly.
+  # co = "!f() { git checkout \"$@\" && git submodule update --init --recursive; }; f"
+  # p = "!f() { git pull \"$@\" && git submodule update --init --recursive; }; f"
+  # m = "!f() { git merge \"$@\" && git submodule update --init --recursive; }; f"
+  # gsu = "!f() { git submodule sync --recursive && git submodule update --init --recursive; }; f"
