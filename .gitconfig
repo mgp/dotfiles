@@ -14,17 +14,22 @@
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
 [push]
 	default = current
+[pull]
+	default = current
 [rerere]
 	enabled = true
 [core]
 	precomposeunicode = true
-	excludesfile = /Users/mgp/.gitignore_global
+	excludesfile = /Users/mike_parker/.gitignore_global
+	editor = /usr/bin/vim
 [color]
 	ui = auto
 
 [alias]
   br = "branch"
   st = "status"
+  ci = "commit"
+  cia = "commit --amend"
   co = "checkout"
   p = "pull"
   dt = "difftool"
