@@ -36,6 +36,7 @@
   dtc = "difftool --cached"
   dtl = "difftool HEAD~1 HEAD"
   tbm = "checkout -t origin/master -b"
+  sum = "branch --set-upstream-to=master"
   rbi = "rebase --interactive"
   lol = "log --topo-order --no-merges --oneline"
 
