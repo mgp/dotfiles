@@ -1,12 +1,21 @@
-export ZSH=/Users/mgp/.oh-my-zsh
-export KEYTIMEOUT=1
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export ZSH="/Users/mgp/.oh-my-zsh"
 export LANG=en_US.UTF-8
+export TERM="xterm-256color"
+export KEYTIMEOUT=1
 
 ZSH_THEME="bullet-train"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(vi-mode osx brew git python pip vagrant colorize colored-man-pages history zsh-syntax-highlighting history-substring-search)
+plugins=(
+  vi-mode
+  osx
+  brew
+  git
+  colorize
+  colored-man-pages
+  history
+  history-substring-search
+)
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
