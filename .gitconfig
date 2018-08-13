@@ -10,6 +10,7 @@
 	keepBackup = false
 [diff]
 	tool = p4mergetool
+	algorithm = patience
 [difftool "p4mergetool"]
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
 [push]
@@ -35,6 +36,7 @@
   dt = "difftool"
   dtc = "difftool --cached"
   dtl = "difftool HEAD~1 HEAD"
+  dtm = "difftool master HEAD"
   tbm = "checkout -t origin/master -b"
   sum = "branch --set-upstream-to=master"
   rbi = "rebase --interactive"
