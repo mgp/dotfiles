@@ -5,6 +5,9 @@ export KEYTIMEOUT=1
 
 ZSH_THEME="bullet-train"
 COMPLETION_WAITING_DOTS="true"
+# Avoid slow creation of Git prompt in large repositories
+BULLETTRAIN_GIT_EXTENDED="false"
+BULLETTRAIN_GIT_CLEAN=""
 
 plugins=(
   vi-mode

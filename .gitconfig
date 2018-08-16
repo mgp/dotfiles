@@ -25,6 +25,8 @@
 	editor = /usr/bin/vim
 [color]
 	ui = auto
+[oh-my-zsh]
+	hide-dirty = 1
 
 [alias]
   br = "branch"
