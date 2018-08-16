@@ -1,13 +1,10 @@
 export ZSH="/Users/mgp/.oh-my-zsh"
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
 export TERM="xterm-256color"
 export KEYTIMEOUT=1
 
 ZSH_THEME="bullet-train"
 COMPLETION_WAITING_DOTS="true"
-# Avoid slow creation of Git prompt in large repositories
-BULLETTRAIN_GIT_EXTENDED="false"
-BULLETTRAIN_GIT_CLEAN=""
 
 plugins=(
   vi-mode
@@ -19,6 +16,17 @@ plugins=(
   history
   history-substring-search
 )
+
+# Override defaults for bullet-train theme
+BULLETTRAIN_GIT_EXTENDED="false"
+BULLETTRAIN_GIT_CLEAN=""
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  dir
+  git
+  cmd_exec_time
+)
+
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
