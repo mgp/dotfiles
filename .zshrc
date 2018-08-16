@@ -5,6 +5,7 @@ export KEYTIMEOUT=1
 
 ZSH_THEME="bullet-train"
 COMPLETION_WAITING_DOTS="true"
+GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 plugins=(
   vi-mode
