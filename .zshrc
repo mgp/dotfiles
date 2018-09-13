@@ -30,9 +30,21 @@ BULLETTRAIN_PROMPT_ORDER=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Configure history substring search from Homebrew
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='mvim'
 fi
+
+# Override standard utilities
+alias cat='bat'
+alias less='cat'
+alias more='cat'
+alias ping='prettyping --nolegend'
+alias top="sudo htop"
