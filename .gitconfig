@@ -1,48 +1,70 @@
 [user]
-	name = Michael Parker
-	email = michael.g.parker@gmail.com
+  name = Michael Parker
+  email = michael.g.parker@gmail.com
 [merge]
-	tool = p4mergetool
+  tool = p4mergetool
 [mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$PWD\"/\"$BASE\" \"$PWD\"/\"$REMOTE\" \"$PWD\"/\"$LOCAL\" \"$PWD\"/\"$MERGED\"
-	trustExitCode = false
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$PWD\"/\"$BASE\" \"$PWD\"/\"$REMOTE\" \"$PWD\"/\"$LOCAL\" \"$PWD\"/\"$MERGED\"
+  trustExitCode = false
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [diff]
-	tool = p4mergetool
-	algorithm = patience
+  tool = p4mergetool
+  algorithm = patience
 [difftool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
 [push]
-	default = current
+  default = current
 [pull]
-	default = current
+  default = current
 [rerere]
-	enabled = true
+  enabled = true
 [core]
-	precomposeunicode = true
-	excludesfile = /Users/mike_parker/.gitignore_global
-	editor = /usr/bin/vim
+  precomposeunicode = true
+  excludesfile = /Users/mike_parker/.gitignore_global
+  editor = /usr/bin/vim
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [color]
-	ui = auto
+  ui = true
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [oh-my-zsh]
-	hide-dirty = 1
+  hide-dirty = 1
 
 [alias]
   br = "branch"
   st = "status"
   ci = "commit"
-  cia = "commit --amend"
+  ca = "commit --amend"
+  can = "commit --amend --no-edit"
   co = "checkout"
   p = "pull"
+  pf = "push -f"
   dt = "difftool"
   dtc = "difftool --cached"
   dtl = "difftool HEAD~1 HEAD"
   dtm = "difftool master HEAD"
   tbm = "checkout -t origin/master -b"
+  tbc = "checkout -t -b"
   sum = "branch --set-upstream-to=master"
   rbi = "rebase --interactive"
-  lol = "log --topo-order --no-merges --date=relative --pretty=\"format:%C(yellow)%h %Cblue%>(14)%ad %Cgreen%<(20)%aN%Cred%d %Creset%s\""
+  rba = "rebase --abort"
+  rbc = "rebase --continue"
+  rop = "remote update origin --prune"
+  lol = "log --no-merges --date=relative --pretty=\"format:%C(yellow)%h %Cblue%>(14)%ad %Cgreen%<(20)%aN%Cred%d %Creset%s\""
+  sh = "!f() { git difftool $@~1 $@; }; f"
 
   # Versions of commands that handle submodules properly.
   # co = "!f() { git checkout \"$@\" && git submodule update --init --recursive; }; f"
