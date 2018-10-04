@@ -27,8 +27,7 @@ BULLETTRAIN_PROMPT_ORDER=(
   git
   cmd_exec_time
 )
-
-source $ZSH/oh-my-zsh.sh
+BULLETTRAIN_DIR_EXTENDED=2
 
 # Configure history substring search from Homebrew
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -48,3 +47,5 @@ alias less='cat'
 alias more='cat'
 alias ping='prettyping --nolegend'
 alias top="sudo htop"
+
+source $ZSH/oh-my-zsh.sh
