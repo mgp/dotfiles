@@ -1,7 +1,7 @@
 [core]
   precomposeunicode = true
   editor = /usr/bin/vim
-	excludesFile = /Users/mgp/.gitignore
+  excludesFile = /Users/mgp/.gitignore
 [push]
   config = default
   default = current
