@@ -1,32 +1,39 @@
-[user]
-  name = Michael Parker
-  email = michael.g.parker@gmail.com
-[merge]
-  tool = p4mergetool
-[mergetool "p4mergetool"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$PWD\"/\"$BASE\" \"$PWD\"/\"$REMOTE\" \"$PWD\"/\"$LOCAL\" \"$PWD\"/\"$MERGED\"
-  trustExitCode = false
-[mergetool]
-  keepBackup = false
-[diff]
-  tool = p4mergetool
-  algorithm = patience
-[difftool "p4mergetool"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
+[core]
+  precomposeunicode = true
+  editor = /usr/bin/vim
+	excludesFile = /Users/mgp/.gitignore
 [push]
+  config = default
   default = current
 [pull]
   default = current
-[rerere]
-  enabled = true
-[core]
-  precomposeunicode = true
-  excludesfile = /Users/mike_parker/.gitignore_global
-  editor = /usr/bin/vim
-[pager]
-  diff = diff-so-fancy | less --tabs=1,5 -RFX
-  show = diff-so-fancy | less --tabs=1,5 -RFX
+[diff]
+  tool = p4mergetool
+  algorithm = patience
+  renames = true
+  indentHeuristic = on
+  keepBackup = false
+[difftool "p4mergetool"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$LOCAL\" \"$REMOTE\"
+[status]
+  showUntrackedFiles = all
+[branch]
+  autosetupmerge = true
+[merge]
+  tool = p4mergetool
+  summary = true
+  conflictstyle = diff3
+[mergetool "p4mergetool"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$PWD\"/\"$BASE\" \"$PWD\"/\"$REMOTE\" \"$PWD\"/\"$LOCAL\" \"$PWD\"/\"$MERGED\"
+  trustExitCode = false
+[rebase]
+  autosquash = true
+  autostash = true
 [color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
   ui = true
 [color "diff-highlight"]
   oldNormal = red bold
@@ -40,16 +47,26 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[rerere]
+  enabled = 1
+[include]
+  path = ~/.gitconfig_local
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [oh-my-zsh]
   hide-dirty = 1
 
 [alias]
-  br = "branch"
+  br = "for-each-ref --sort=-committerdate --format '%(align:right,18)%(color:blue)%(committerdate:relative)%(color:reset)%(end) %(align:left,50)%(color:yellow)%(refname:short)%(color:reset)%(end) %(subject)' refs/heads"
+  bn = "branch -m"
+  bd = "branch -D"
   st = "status"
   ci = "commit"
   ca = "commit --amend"
   can = "commit --amend --no-edit"
   co = "checkout"
+  com = "checkout master"
   p = "pull"
   pf = "push -f"
   dt = "difftool"
@@ -64,10 +81,5 @@
   rbc = "rebase --continue"
   rop = "remote update origin --prune"
   lol = "log --no-merges --date=relative --pretty=\"format:%C(yellow)%h %Cblue%>(14)%ad %Cgreen%<(20)%aN%Cred%d %Creset%s\""
-  sh = "!f() { git difftool $@~1 $@; }; f"
-
-  # Versions of commands that handle submodules properly.
-  # co = "!f() { git checkout \"$@\" && git submodule update --init --recursive; }; f"
-  # p = "!f() { git pull \"$@\" && git submodule update --init --recursive; }; f"
-  # m = "!f() { git merge \"$@\" && git submodule update --init --recursive; }; f"
-  # gsu = "!f() { git submodule sync --recursive && git submodule update --init --recursive; }; f"
+  sh = "!f( { git difftool $@~1 $@; }; f"
+  me = "lol --author=mgp"
